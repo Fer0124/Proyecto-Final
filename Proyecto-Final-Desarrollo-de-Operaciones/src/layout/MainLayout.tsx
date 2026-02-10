@@ -1,17 +1,12 @@
-import Navbar from '@/components/molecules/Navbar';
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/molecules/Navbar/Navbar";
 
-
-type MainLayoutProps = {
-  children: React.ReactNode;
-};
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
     <>
       <Navbar />
-
-      <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem' }}>
-        {children}
+      <main style={{ padding: "1rem" }}>
+        <Outlet />
       </main>
     </>
   );

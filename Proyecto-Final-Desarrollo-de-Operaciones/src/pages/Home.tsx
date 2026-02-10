@@ -1,24 +1,14 @@
-import { useState } from 'react';
-import Input from '@/components/atoms/Input';
-import Button from '@/components/atoms/Button';
-
 const Home = () => {
-     const [email, setEmail] = useState('');
   return (
-    <div>
+    <section>
       <h1>Home</h1>
+      <p>Este es el Home del proyecto.</p>
 
-      <Input
-        label="Email"
-        name="email"
-        type="email"
-        placeholder="correo@ejemplo.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <Button label="Ingresar" />
-    </div>
+      <div style={{ marginTop: "1rem" }}>
+        <button>Acción 1</button>
+        <button style={{ marginLeft: "0.5rem" }}>Acción 2</button>
+      </div>
+    </section>
   );
 };
 

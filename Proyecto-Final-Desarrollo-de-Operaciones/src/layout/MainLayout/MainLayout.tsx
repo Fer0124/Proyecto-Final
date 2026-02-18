@@ -1,20 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "@/components/molecules/Navbar/Navbar";
+import Sidebar from "../../components/organisms/Sidebar/Sidebar";
 import styles from "./MainLayout.module.css";
 
 const MainLayout = () => {
   return (
     <div className={styles.container}>
       <Navbar />
+
       <div className={styles.body}>
-        <aside className={styles.sidebar}>
-          <ul>
-            <li>Dashboard</li>
-            <li>Gestor de Proyectos</li>
-            <li>Consultores</li>
-            <li>Tablero Scrum</li>
-          </ul>
-        </aside>
+        <Sidebar />
 
         <main className={styles.content}>
           <Outlet />

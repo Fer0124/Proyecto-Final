@@ -1,8 +1,8 @@
 .navbar {
   height: 64px;
   width: 100%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: #2f6fa3; /* azul similar al mock */
+  color: white;
 
   display: flex;
   align-items: center;
@@ -14,9 +14,11 @@
 .logo {
   font-size: 18px;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .actions {
   display: flex;
-  gap: 12px;
+  gap: 16px;
+  align-items: center;
 }

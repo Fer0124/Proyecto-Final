@@ -1,35 +1,57 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import MainLayout from "../layout/MainLayout";
-import AuthLayout from "../layout/AuthLayout";
+import MainLayout from "../layout/MainLayout/MainLayout";
+import AuthLayout from "../layout/AuthLayout/AuthLayout";
 import PrivateRoute from "./PrivateRoute";
 
-
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import NotFound from "../pages/NotFound";
+import LoginPage from "../pages/Login/LoginPage";
+import ForgotPassword from "../pages/forgotPassword/ForgotPass";
+import Home from "../pages/Home/Home";
+import CreateProject from "../pages/createProject/CreateProject";
+import NotFound from "../pages/notFound/NotFound";
 
 export const router = createBrowserRouter([
+  // Redirección inicial
   {
-  path: "/",
-  element: <Navigate to="/login" replace />,
-},
+    path: "/",
+    element: <Navigate to="/login" replace />,
+  },
+
+  // Rutas públicas (Auth)
   {
-  element: <PrivateRoute />,
-  children: [
-    {
-      path: "/home",
-      element: <MainLayout />,
-      children: [{ index: true, element: <Home /> }],
-    },
-  ],
-},
-  {
-    path: "/login",
     element: <AuthLayout />,
     children: [
-      { index: true, element: <Login /> },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
     ],
   },
+
+  // Rutas privadas
+  {
+    element: <PrivateRoute />,
+    children: [
+      {
+        element: <MainLayout />,
+        children: [
+          {
+            path: "/home",
+            element: <Home />,
+          },
+          {
+            path: "/create-project",
+            element: <CreateProject />,
+          },
+        ],
+      },
+    ],
+  },
+
+  // 404
   {
     path: "*",
     element: <NotFound />,

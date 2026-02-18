@@ -1,13 +1,20 @@
 import styles from './Navbar.module.css';
-import Button from '@/components/atoms/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuth");
+    navigate("/login");
+  };
+
   return (
     <header className={styles.navbar}>
-      <h2 className={styles.logo}>Nombre de la compania</h2>
+      <h2 className={styles.logo}>IPMCS</h2>
 
       <nav className={styles.actions}>
-        <Button label="Login" variant="secondary" />
+        <button onClick={handleLogout}>Cerrar sesión</button>
       </nav>
     </header>
   );
